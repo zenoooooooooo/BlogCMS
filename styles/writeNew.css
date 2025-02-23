@@ -28,6 +28,22 @@
   border-color: #3498db;
 }
 
+.write-new form .array-bubble {
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+}
+
+.tag,
+.category {
+  padding: 20px;
+  background-color: #4aa6c5;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border-radius: 50%;
+}
+
 .write-new form textarea {
   resize: none;
   outline: none;
@@ -43,6 +59,12 @@
 
 .write-new form textarea:focus {
   border-color: #3498db;
+}
+
+.write-new form .sideButton {
+  width: 20%;
+  background-color: rgb(162, 202, 217);
+  border: none;
 }
 
 .write-new form .submitButton {
