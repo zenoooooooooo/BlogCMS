@@ -24,11 +24,18 @@ class InputManager {
   updateUI() {
     this.container.innerHTML = "";
 
+    if (this.items.length === 0) {
+      this.container.style.display = "none";
+    } else {
+      this.container.style.display = "flex";
+    }
+
     this.items.forEach((item, index) => {
       let itemElement = document.createElement("div");
       itemElement.classList.add(this.type);
       itemElement.innerHTML = `${item} <span style="cursor: pointer;" onclick="${this.type}Manager.removeItem(${index})">×</span>`;
       this.container.appendChild(itemElement);
+      alert(this.items.length);
     });
 
     this.hiddenInput.value = this.items.join(",");
