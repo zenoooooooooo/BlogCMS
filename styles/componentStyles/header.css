@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-header nav {
+nav {
   position: relative;
   top: 0;
   right: 0;
@@ -14,19 +14,19 @@ header nav {
   padding: 2rem;
 }
 
-header nav ul {
+nav ul {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-header nav li {
+nav li {
   margin-right: 7rem;
   list-style: none;
   font-size: 18px;
 }
 
-header a {
+a {
   text-decoration: none;
   font-weight: bold;
   color: #fff;
@@ -34,7 +34,7 @@ header a {
   transition: transform 0.2s ease-in-out;
 }
 
-header a::after {
+a::after {
   content: "";
   position: absolute;
   left: 0;
@@ -45,27 +45,27 @@ header a::after {
   transition: width 0.3s ease-in-out;
 }
 
-header a:hover {
+a:hover {
   transform: scale(1.05);
 }
 
-header a:hover::after {
+a:hover::after {
   width: 100%;
 }
 
-header form {
+nav form {
   margin-right: auto;
   width: 40%;
 }
 
-header .searchBar {
+.searchBar {
   padding: 5px;
   border-radius: 5px;
   outline: none;
   width: 40%;
 }
 
-header .searchButton {
+.searchButton {
   padding: 5px;
   border: none;
   font-weight: bold;

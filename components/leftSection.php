@@ -7,5 +7,4 @@
         <li><a href="#">Comments</a></li>
         <li><a href="#">Saved Posts</a></li>
     </ul>
-    <div>hi</div>
 </aside>

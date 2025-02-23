@@ -1,5 +1,5 @@
 <?php session_start() ?>
-<header>
+
   <nav>
     <ul>
       <form action="../content/dashboard.php" method="get">
@@ -9,4 +9,3 @@
       <li><a href="./profile.php"><?php echo $_SESSION['username']; ?></a></li>
     </ul>
   </nav>
-</header>
