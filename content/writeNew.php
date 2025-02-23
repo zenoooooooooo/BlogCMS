@@ -8,19 +8,18 @@ session_start();
         <input class="textInput" type="text" name="title" placeholder="Title">
 
 
-
+        <div id="tagContainer" class="array-bubble"></div>
         <div class="container">
-            <div id="tagContainer" class="array-bubble"></div>
             <input class="textInput" type="text" id="tagInput" placeholder="Tag People">
-            <button type="button" onclick="tagManager.addItem()">Add Tag</button>
+            <button type="button" class="sideButton" onclick="tagManager.addItem()">Add</button>
         </div>
 
         <input type="hidden" name="tags" id="hiddenTags">
 
+        <div id="categoryContainer" class="array-bubble"></div>
         <div class="container">
-            <div id="categoryContainer" class="array-bubble"></div>
             <input class="textInput" type="text" id="categoryInput" placeholder="Categories">
-            <button type="button" onclick="categoryManager.addItem()">Add Category</button>
+            <button type="button" class="sideButton" onclick="categoryManager.addItem()">Add</button>
         </div>
 
         <input type="hidden" name="categories" id="hiddenCategories">

@@ -30,10 +30,12 @@
 
 .write-new form .array-bubble {
   padding: 20px;
-  display: flex;
+  display: none;
   gap: 20px;
 }
-
+.container {
+  display: flex;
+}
 .tag,
 .category {
   padding: 20px;
