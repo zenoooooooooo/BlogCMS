@@ -1,0 +1,13 @@
+.right-section {
+    position: fixed;
+    right: 0;
+    width: 20%;
+    height: 100vh;
+    background-color: rgb(132, 192, 212);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+

@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-nav {
+header nav {
   position: relative;
   top: 0;
   right: 0;
@@ -14,23 +14,19 @@ nav {
   padding: 2rem;
 }
 
-ul {
+header nav ul {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-li {
+header nav li {
   margin-right: 7rem;
   list-style: none;
   font-size: 18px;
 }
 
-#dashboardLogo {
-  margin-right: auto;
-}
-
-a {
+header a {
   text-decoration: none;
   font-weight: bold;
   color: #fff;
@@ -38,7 +34,7 @@ a {
   transition: transform 0.2s ease-in-out;
 }
 
-a::after {
+header a::after {
   content: "";
   position: absolute;
   left: 0;
@@ -49,32 +45,30 @@ a::after {
   transition: width 0.3s ease-in-out;
 }
 
-a:hover {
+header a:hover {
   transform: scale(1.05);
 }
 
-a:hover::after {
+header a:hover::after {
   width: 100%;
 }
 
-form {
-  margin-left: auto;
+header form {
   margin-right: auto;
-  width: 25%;
+  width: 40%;
 }
 
-.searchBar {
-    padding: 5px;
-    border-radius: 5px;
-    outline: none;
-    width: 80%;
+header .searchBar {
+  padding: 5px;
+  border-radius: 5px;
+  outline: none;
+  width: 40%;
 }
 
-.searchButton {
-    padding: 5px;
-    border: none;
-    font-weight: bold;
-    color: white;
-    background-color: darkgreen;
+header .searchButton {
+  padding: 5px;
+  border: none;
+  font-weight: bold;
+  color: white;
+  background-color: darkgreen;
 }
-

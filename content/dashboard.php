@@ -2,14 +2,28 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/dashboard.css">
+    <link rel="stylesheet" href="../styles/componentStyles/header.css">
+    <link rel="stylesheet" href="../styles/componentStyles/leftSection.css">
+    <link rel="stylesheet" href="../styles/componentStyles/rightSection.css">
+    <link href="../assets/favicon.png" rel="icon" type="image/png" />
     <title>Dashboard - BlogCMS</title>
 </head>
+
 <body>
-<?php
+    <?php
     include("../components/header.php");
-?>
+    ?>
+    <?php
+    include("../components/leftSection.php");
+    ?>
+    <?php
+    include("../components/rightSection.php");
+    ?>  
 </body>
+
 </html>
