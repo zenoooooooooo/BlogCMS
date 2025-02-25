@@ -27,9 +27,6 @@
     <?php
     include("../components/rightSection.php");
     ?>
-    <?php
-    include("./writeNew.php");
-    ?>
 </body>
 
 </html>

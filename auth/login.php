@@ -1,5 +1,4 @@
-<?php
-session_start();
+<?php session_start();
 require_once __DIR__ . '/../config/database.php';
 ?>
 
@@ -30,6 +29,7 @@ require_once __DIR__ . '/../config/database.php';
                 $stmt = $connection->prepare("SELECT id, username, password FROM users WHERE email = ?");
                 mysqli_stmt_bind_param($stmt, "s", $email);
                 mysqli_stmt_execute($stmt);
+                mysqli_stmt_store_result($stmt);
 
                 if (mysqli_stmt_num_rows($stmt) > 0) {
                     mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password);
