@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./assets/favicon.png" rel="icon" type="image/png" />
+    <link rel="stylesheet" href="../styles/auth.css">
     <title>Login - BlogCMS</title>
 </head>
 
@@ -46,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: ../content/dashboard.php");
             exit();
         } else {
-            
+
             echo "Incorrect password!";
         }
     } else {

@@ -11,10 +11,5 @@ $connection = "";
 try {
     $connection = mysqli_connect($db_server, $db_user, $db_password, $db_name);
 } catch (mysqli_sql_exception) {
-    echo "Could not connect...";
-}
-
-
-if ($connection) {
-    echo "You are connected!";
+    throw new Exception("Database connection failed");
 }
