@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="../styles/componentStyles/rightSection.css">
     <link rel="stylesheet" href="../styles/writeNew.css">
     <link href="../assets/favicon.png" rel="icon" type="image/png" />
-    <script src="../scripts/formSubmit.js" defer></script>
+    <script src="../scripts/InputManager.js" defer></script>
+    <script src="../scripts/ImageUpload.js" defer></script>
     <title>Dashboard - BlogCMS</title>
 </head>
 

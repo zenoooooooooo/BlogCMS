@@ -35,7 +35,6 @@ class InputManager {
       itemElement.classList.add(this.type);
       itemElement.innerHTML = `${item} <span style="cursor: pointer;" onclick="${this.type}Manager.removeItem(${index})">×</span>`;
       this.container.appendChild(itemElement);
-      alert(this.items.length);
     });
 
     this.hiddenInput.value = this.items.join(",");

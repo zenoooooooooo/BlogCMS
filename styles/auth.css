@@ -1,0 +1,81 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(74, 166, 197);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  border: none;
+  border-radius: 8px;
+  background-color: white;
+  width: 90%;
+  max-width: 400px;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+form h1 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+form input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s;
+}
+
+form input:focus {
+  border-color: rgb(74, 166, 197);
+  outline: none;
+}
+
+form input[type="submit"] {
+  background-color: rgb(74, 166, 197);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+form input[type="submit"]:hover {
+  background-color: rgb(60, 140, 160);
+}
+
+.message {
+  margin-top: 15px;
+  color: red;
+  text-align: center;
+}
+
+.changeMode-prompt {
+  margin-top: 15px;
+  color: #333;
+  text-align: center;
+}
+
+.changeMode-prompt a {
+  color: rgb(74, 166, 197);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.changeMode-prompt a:hover {
+  text-decoration: underline;
+}

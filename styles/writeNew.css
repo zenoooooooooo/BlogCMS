@@ -38,12 +38,12 @@
 }
 .tag,
 .category {
-  padding: 20px;
-  background-color: #4aa6c5;
+  padding: 10px;
+  background-color: darkgreen;
   color: white;
   font-weight: bold;
   font-size: 1.2rem;
-  border-radius: 50%;
+  border-radius: 10px;
 }
 
 .write-new form textarea {
@@ -65,7 +65,9 @@
 
 .write-new form .sideButton {
   width: 20%;
-  background-color: rgb(162, 202, 217);
+  color: white;
+  font-size: bold;
+  background-color: #4aa6c5;
   border: none;
 }
 
