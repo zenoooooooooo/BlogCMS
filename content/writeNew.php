@@ -42,22 +42,25 @@ require_once __DIR__ . '/../config/database.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
-    $title = null;
-    $description = null;
+    if (!empty($_POST['title']) && !empty($_POST['description'])) {
+        $title = $_POST['title'];
+        $description = $_POST['description'];
 
-
-    if (isset($_POST['title']) || isset($_POST['description'])) {
-        $_title = $_POST['title'];
-        $_description = $_POST['description'];
+   
         $stmt = $connection->prepare("INSERT INTO posts (title, description) VALUES (?, ?)");
         mysqli_stmt_bind_param($stmt, "ss", $title, $description);
-        mysqli_stmt_execute($stmt);
+
 
         if (mysqli_stmt_execute($stmt)) {
             echo "Post created successfully!";
         } else {
             echo "Error inserting post: " . mysqli_stmt_error($stmt);
         }
+
+    
+        mysqli_stmt_close($stmt);
+    } else {
+        echo "Title and description are required.";
     }
 }
 
