@@ -48,9 +48,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['title'])) {
         $_title = $_POST['title'];
         $stmt = $connection->prepare("INSERT INTO posts (title, description) VALUES (?, ?)");
-        mysqli_stmt_bind_param($stmt, "s", $title);
+        mysqli_stmt_bind_param($stmt, "ss", $title, $description);
         mysqli_stmt_execute($stmt);
-        mysqli_stmt_store_result($stmt);
+
+        if (mysqli_stmt_execute($stmt)) {
+            echo "Post created successfully!";
+        } else {
+            echo "Error inserting post: " . mysqli_stmt_error($stmt);
+        }
     }
 
 }
