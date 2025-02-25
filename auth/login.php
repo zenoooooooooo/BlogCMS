@@ -45,7 +45,7 @@
                         echo "Incorrect password!";
                     }
                 } else {
-                    echo "User  not found!";
+                    echo "User not found!";
                 }
             }
             ?>

@@ -41,9 +41,9 @@ session_start();
                 mysqli_stmt_store_result($emailCheck);
 
                 if (mysqli_stmt_num_rows($usernameCheck) > 0) {
-                    echo "'{$username}' is already taken";
+                    echo "'{$username}' is already taken! Please use other username";
                 } elseif (mysqli_stmt_num_rows($emailCheck) > 0) {
-                    echo "'{$email}' already registered!";
+                    echo "'{$email}' is already registered! Please use other email";
                 } else {
 
                     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
