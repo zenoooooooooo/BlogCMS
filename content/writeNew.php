@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once __DIR__ . '/../config/database.php';
 ?>
 <main class="write-new">
     <h1>Write New Post</h1>
@@ -40,20 +41,18 @@ session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $title = $_POST["title"];
-    $description = $_POST["description"];
-    $tags = $_POST["tags"];
-    $categories = $_POST["categories"];
-    $imageFilename = $_POST["imageFilename"];
 
-    $query = "INSERT INTO users(username, email, password) VALUES('$username', '$email', '$password')";
-    try {
-        mysqli_query($connection, $query);
-        header("Location: ./login.php");
-        exit();
-    } catch (mysqli_sql_exception $e) {
-        echo "Could not register: " . $e->getMessage();
+    $title = null;
+    
+    
+    if (isset($_POST['title'])) {
+        $_title = $_POST['title'];
+        $stmt = $connection->prepare("INSERT INTO posts (title, description) VALUES (?, ?)");
+        mysqli_stmt_bind_param($stmt, "s", $title);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_store_result($stmt);
     }
+
 }
 
 ?>

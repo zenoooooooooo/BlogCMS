@@ -1,4 +1,7 @@
-<?php session_start(); ?>
+<?php
+session_start();
+require_once __DIR__ . '/../config/database.php';
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +23,6 @@
         <div class="message">
             <?php
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                require_once __DIR__ . '/../config/database.php';
 
                 $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_SPECIAL_CHARS);
                 $password = $_POST["password"];

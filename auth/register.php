@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once __DIR__ . '/../config/database.php';
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +25,6 @@ session_start();
         <div class="message">
             <?php
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                require_once __DIR__ . '/../config/database.php';
 
                 $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
                 $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
