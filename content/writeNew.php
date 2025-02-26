@@ -63,6 +63,8 @@ require_once __DIR__ . '/../config/database.php';
 
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
+                    $post_id = null;
+
                     if (!empty($_POST['title']) && !empty($_POST['description'])) {
                         $title = $_POST['title'];
                         $description = $_POST['description'];
@@ -81,10 +83,8 @@ require_once __DIR__ . '/../config/database.php';
 
 
                         if (mysqli_stmt_execute($stmt)) {
-                            echo "Post created successfully!";
-                            $inserted_id = mysqli_insert_id($connection); 
-                            
-                            echo "Post created successfully! Post ID: " . $inserted_id;
+                            $post_id = mysqli_insert_id($connection);
+                            echo "Post created successfully! Post ID: " . $post_id;
                         } else {
                             echo "Error inserting post: " . mysqli_stmt_error($stmt);
                         }
@@ -93,8 +93,32 @@ require_once __DIR__ . '/../config/database.php';
                     } else {
                         echo "Title and description are required.";
                     }
-                }
 
+
+                    if (isset($_POST['tags'])) {
+                        $tags = $_POST['tags'];
+                        $tagsArray = explode(",", $tags);
+                        foreach ($tagsArray as $tag) {
+                            $tag = trim($tag);
+                            $searchStmt = $connection->prepare("SELECT id FROM users WHERE username = ?");
+                            mysqli_stmt_bind_param($searchStmt, "s", $tag);
+                            mysqli_stmt_execute($searchStmt);
+                            mysqli_stmt_store_result($searchStmt);
+
+                            if (mysqli_stmt_num_rows($searchStmt) > 0) {
+                                mysqli_stmt_bind_result($searchStmt, $id);
+                                mysqli_stmt_fetch($searchStmt);
+                                $stmt = $connection->prepare("INSERT INTO tags (post_id, user_id) VALUES (?, ?)");
+                                mysqli_stmt_bind_param($stmt, "ii", $post_id, $id);
+                                if (mysqli_stmt_execute($stmt)) {
+                                    echo "Tag created successfully!";
+                                }
+                            } else {
+                                echo "No users found with username: " . $tag;
+                            }
+                        }
+                    }
+                }
                 ?>
             </div>
         </form>
