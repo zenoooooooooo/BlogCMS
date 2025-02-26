@@ -57,46 +57,48 @@ require_once __DIR__ . '/../config/database.php';
 
             <textarea name="description" placeholder="Description"></textarea>
             <input class="submitButton" type="submit" name="submit" value="Submit">
-            <div class="message"></div>
+            <div class="message">
+                <?php
+
+
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+                    if (!empty($_POST['title']) && !empty($_POST['description'])) {
+                        $title = $_POST['title'];
+                        $description = $_POST['description'];
+
+
+                        if (!isset($_SESSION['user_id'])) {
+                            echo "You are not logged in!";
+                            exit();
+                        }
+
+                        $user_id = $_SESSION['user_id'];
+
+                        $stmt = $connection->prepare("INSERT INTO posts (user_id, title, description) VALUES (?, ?, ?)");
+                        mysqli_stmt_bind_param($stmt, "iss", $user_id, $title, $description);
+
+
+
+                        if (mysqli_stmt_execute($stmt)) {
+                            echo "Post created successfully!";
+                            $inserted_id = mysqli_insert_id($connection); 
+                            
+                            echo "Post created successfully! Post ID: " . $inserted_id;
+                        } else {
+                            echo "Error inserting post: " . mysqli_stmt_error($stmt);
+                        }
+
+                        mysqli_stmt_close($stmt);
+                    } else {
+                        echo "Title and description are required.";
+                    }
+                }
+
+                ?>
+            </div>
         </form>
     </main>
 </body>
 
 </html>
-
-
-<?php
-
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-
-    if (!empty($_POST['title']) && !empty($_POST['description'])) {
-        $title = $_POST['title'];
-        $description = $_POST['description'];
-
-
-        if (!isset($_SESSION['user_id'])) {
-            echo "You are not logged in!";
-            exit();
-        }
-
-        $user_id = $_SESSION['user_id'];
-
-        $stmt = $connection->prepare("INSERT INTO posts (user_id, title, description) VALUES (?, ?, ?)");
-        mysqli_stmt_bind_param($stmt, "iss", $user_id, $title, $description);
-
-
-        if (mysqli_stmt_execute($stmt)) {
-            echo "Post created successfully!";
-        } else {
-            echo "Error inserting post: " . mysqli_stmt_error($stmt);
-        }
-
-        mysqli_stmt_close($stmt);
-    } else {
-        echo "Title and description are required.";
-    }
-}
-
-?>
